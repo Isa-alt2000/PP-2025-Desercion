@@ -101,6 +101,7 @@ class Movimiento(models.Model):
     tipo = models.CharField(max_length=10, choices=TIPO_CHOICES)
     monto = models.DecimalField(max_digits=10, decimal_places=2)
     fecha = models.DateField(default=timezone.now)
+    concepto = models.CharField(max_length=100, blank=True)
     descripcion = models.TextField(blank=True, null=True)
 
     def save(self, *args, **kwargs):

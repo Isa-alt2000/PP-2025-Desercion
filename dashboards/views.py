@@ -5,10 +5,10 @@ from .models import Cuenta, Movimiento
 from .forms import CuentaForm, MovimientoForm
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def lista_cuentas(request):
     cuentas = Cuenta.objects.filter(usuario=request.user)
-    # Calcular balances de manera manual
     balances = {}
     for cuenta in cuentas:
         ingresos = cuenta.movimientos.filter(tipo='INGRESO').aggregate(Sum('monto'))['monto__sum'] or 0

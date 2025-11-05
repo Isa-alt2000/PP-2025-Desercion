@@ -13,7 +13,7 @@
     <li>
       <a href="{% url 'dashboards:detalle_cuenta' cuenta.id %}">
         {{ cuenta.nombre }}
-      </a>Balance: ${{ balances.cuenta.id }}
+      </a>Balance: ${{ balances }}
     </li>
     <form method="post"
             action="{% url 'dashboards:eliminar_cuenta' cuenta.id %}"
@@ -30,7 +30,7 @@
 <script>
 function confirmarEliminacion(event) {
   event.preventDefault();
-  const confirmacion = confirm("¿Seguro que deseas eliminar este movimiento?");
+  const confirmacion = confirm("¿Seguro que deseas eliminar esta cuenta?");
   if (confirmacion) {
     event.target.submit();
   }

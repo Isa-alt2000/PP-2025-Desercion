@@ -12,7 +12,7 @@ class CuentaForm(forms.ModelForm):
 class MovimientoForm(forms.ModelForm):
     class Meta:
         model = Movimiento
-        fields = ['tipo', 'monto', 'descripcion', 'fecha']
+        fields = ['tipo', 'monto', 'concepto', 'descripcion', 'fecha']
         widgets = {
             'fecha': forms.DateInput(attrs={'type': 'date'}),
             'monto': forms.NumberInput(attrs={'min': '0', 'step': '0.01'}),
