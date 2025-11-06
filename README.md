@@ -15,7 +15,18 @@ Para la realización de este proyecto, se optó por utilizar django debido a su 
  - Postgres
 
 ## Guia de instalación
-1. Configuración de postgres
+1. Configuración de motor de base de datos (postgres por el momento)
+    Configuración automática para despliegue con script. **UNICAMENTE SI NO EXISTE USUARIO O DB PREVIOS CON LOS MISMOS NOMBRES. EN TODO CASO, SERÁ NECESARIO HACERLO MANUALMENTE**
+    - **script NO incluye la instalación de postgres por lo que deberá hacerse manualmente**  
+
+    **Linux**
+    ```bash
+    chmod +x setup_postgres.sh
+    ```
+
+    ```bash
+    ./setup_postgres.sh
+    ```
 
 2. Creación de entorno virtual
 
@@ -34,5 +45,8 @@ Para este proyecto se buscó seguir las mejores prácticas posibles de python y 
  - PEP8 (Haciendo uso de Flake8)
  - Manejo de variables de entorno
 
-Sin embargo no se implementaron prácticas REST debido a la naturaleza pequeña del proyecto.
-La funcionalidad de usuarios fue reciclada de un proyecto anterior y adaptada a este proyecto.
+**Sin embargo no se implementaron prácticas REST debido a la naturaleza pequeña del proyecto.**  
+
+**La funcionalidad de usuarios fue reciclada de un proyecto anterior y adaptada a este proyecto por lo cual puede haber ligeras discrepancias que serán removidas poco a poco.**  
+
+**El proyecto utiliza postgres como motor de base de datos, será migrado a mysql en la posterioridad.**
