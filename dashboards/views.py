@@ -40,10 +40,13 @@ def detalle_cuenta(request, cuenta_id):
     egresos = cuenta.movimientos.filter(tipo='EGRESO').aggregate(Sum('monto'))['monto__sum'] or 0
     balance = ingresos - egresos
 
+    form = MovimientoForm()
+
     return render(request, 'cuenta_detalle.html', {
         'cuenta': cuenta,
         'movimientos': movimientos,
-        'balance': balance
+        'balance': balance,
+        'form': form
     })
 
 
@@ -83,5 +86,21 @@ def eliminar_movimiento(request, cuenta_id, movimiento_id):
         movimiento.delete()
         messages.success(request, "Movimiento eliminado correctamente.")
         return redirect('dashboards:detalle_cuenta', cuenta_id=cuenta.id)
+
+    return redirect('dashboards:detalle_cuenta', cuenta_id=cuenta.id)
+
+@login_required
+def editar_movimiento(request, cuenta_id, movimiento_id):
+    cuenta = get_object_or_404(Cuenta, id=cuenta_id, usuario=request.user)
+    movimiento = get_object_or_404(Movimiento, id=movimiento_id, cuenta=cuenta)
+
+    if request.method == 'POST':
+        form = MovimientoForm(request.POST, instance=movimiento)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Movimiento actualizado correctamente.")
+            return redirect('dashboards:detalle_cuenta', cuenta_id=cuenta.id)
+    else:
+        form = MovimientoForm(instance=movimiento)
 
     return redirect('dashboards:detalle_cuenta', cuenta_id=cuenta.id)

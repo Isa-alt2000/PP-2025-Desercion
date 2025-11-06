@@ -9,5 +9,6 @@ urlpatterns = [
     path('cuentas/<int:cuenta_id>/', views.detalle_cuenta, name='detalle_cuenta'),
     path('cuentas/<int:cuenta_id>/eliminar/', views.eliminar_cuenta, name='eliminar_cuenta'),
     path('cuentas/<int:cuenta_id>/nuevo-movimiento/', views.agregar_movimiento, name='agregar_movimiento'),
-    path('cuentas/<int:cuenta_id>/movimiento/<int:movimiento_id>/eliminar/', views.eliminar_movimiento, name='eliminar_movimiento'),
+    path('cuentas/<int:cuenta_id>/movimiento/<int:movimiento_id>/eliminar/',views.eliminar_movimiento, name='eliminar_movimiento'),
+    path('cuentas/<int:cuenta_id>/editar-movimiento/<int:movimiento_id>/',views.editar_movimiento, name='editar_movimiento'),
 ]
