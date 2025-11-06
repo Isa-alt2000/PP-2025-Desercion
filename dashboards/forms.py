@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from .models import Cuenta, Movimiento, DatosPersonales, FactoresDesercion, PreguntasAbiertas, EstadoActual
 
-
+# FINANZAS
 class CuentaForm(forms.ModelForm):
     class Meta:
         model = Cuenta
@@ -28,8 +28,11 @@ class MovimientoForm(forms.ModelForm):
         return monto
 
 
-# ENCUESTAS
-class DatosPersonalesForm(forms.ModelForm):
-    class Meta:
-        model = DatosPersonales
-        fields = ['nombre', 'edad', 'genero', 'nivel_educativo', 'situacion_laboral']
+# # ENCUESTAS
+# class DatosPersonalesForm(forms.ModelForm):
+#     class Meta:
+#         model = DatosPersonales
+#         fields = ['nombre', 'edad', 'genero', 'nivel_educativo', 'situacion_laboral']
+#         widgets = {
+#             'edad': forms.NumberInput(attrs={'min': '0'}),
+#         }

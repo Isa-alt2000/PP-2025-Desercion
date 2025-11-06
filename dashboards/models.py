@@ -44,7 +44,7 @@ class DatosPersonales(models.Model):
     ]
 
     nombre = models.CharField(max_length=100, null=True, blank=True)
-    edad = models.IntegerField(null=False, blank=False,)
+    edad = models.IntegerField(null=False, blank=False, default=18)
     genero = models.CharField(max_length=20, choices=GENERO_CHOICES, blank=False)
     estado_civil = models.CharField(max_length=30, choices=EDO_CIVIL_CHIOCES, blank=False)
     alcaldia = models.CharField(max_length=50, choices=ALCALDIA_CHIOCES, blank=True)
@@ -78,8 +78,8 @@ class EstadoActual(models.Model):
         on_delete=models.CASCADE,
         related_name='estado_actual'
     )
-    ultimo_sem_cursado = models.IntegerField(null=False, choices=SEMESTRES_CHOICES, blank=False)
-    sem_posible_abandono = models.IntegerField(null=False, choices=SEMESTRES_CHOICES, blank=False)
+    ultimo_sem_cursado = models.IntegerField(null=False, choices=SEMESTRES_CHOICES, blank=False, default=1)
+    sem_posible_abandono = models.IntegerField(null=False, choices=SEMESTRES_CHOICES, blank=False, default=1)
     ocupacion_actual = models.CharField(max_length=100, choices=OCUP_ACT_CHOICES, blank=True)
     trabajo_actual = models.CharField(max_length=100, blank=True)
     apoyo_actual = models.CharField(max_length=100, blank=True)

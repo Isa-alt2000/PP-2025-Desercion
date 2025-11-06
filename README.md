@@ -15,7 +15,7 @@ Para la realización de este proyecto, se optó por utilizar django debido a su 
  - Postgres
 
 ## Guia de instalación
-1. Configuración de motor de base de datos (postgres por el momento)
+1. Configuración de motor de base de datos (postgres por el momento)  
     Configuración automática para despliegue con script. **UNICAMENTE SI NO EXISTE USUARIO O DB PREVIOS CON LOS MISMOS NOMBRES. EN TODO CASO, SERÁ NECESARIO HACERLO MANUALMENTE**
     - **script NO incluye la instalación de postgres por lo que deberá hacerse manualmente**  
 
